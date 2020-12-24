@@ -26,7 +26,7 @@ class ContactHelper {
 
   Future<Database> initDb() async {
     final databasesPath = await getDatabasesPath();
-    final path = join(databasesPath, "contacts.db");
+    final path = join(databasesPath, "contactsnew.db");
 
     return await openDatabase(path, version: 1,
         onCreate: (Database db, int newerVersion) async {
@@ -93,6 +93,10 @@ class Contact {
   String phone;
   String img;
 
+  Contact(){
+
+  }
+
   Contact.fromMap(Map map) {
     id = map[idColumn];
     name = map[nameColumn];
@@ -116,6 +120,6 @@ class Contact {
 
   @override
   String toString() {
-    return json.encode(this);
+    return "Contato(id: $id nome: $name)";
   }
 }
