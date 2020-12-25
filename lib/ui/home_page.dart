@@ -2,6 +2,7 @@ import 'package:agenda_de_contatos/helpers/contact_helper.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import "dart:io";
+import "package:url_launcher/url_launcher.dart";
 
 import 'contact_page.dart';
 
@@ -118,7 +119,10 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 20
                           ),
                         ),
-                        onPressed: (){},
+                        onPressed: (){
+                          launch("tel:${contacts[index].phone}");
+                          Navigator.pop(context);
+                        },
                       ),
                   ),Padding(
                     padding: EdgeInsets.all(10),
